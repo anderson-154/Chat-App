@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/presentation/widget/chat/my_message_bubble.dart';
 
 void main() => runApp(const ChatScreen());
 
@@ -16,7 +17,6 @@ class ChatScreen extends StatelessWidget {
           ),
         ),
         title: const Text('mi amor'),
-        centerTitle: true,
       ),
       body: _ChatView(),
     );
@@ -29,6 +29,22 @@ class _ChatView extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Expanded(child: ListView.builder(
+              itemCount: 100,
+              itemBuilder: (context, index) {
+                return const MyMessageBubble();
+              }),
+            ),
+        
+            Text('hello world')
+          ],
+        ),
+      ),
+    );
   }
 }
